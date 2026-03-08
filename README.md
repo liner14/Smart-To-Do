@@ -55,11 +55,9 @@ A sleek, modern **To-Do List & Task Manager** built entirely with **vanilla HTML
 
 ## 🖼️ Screenshots
 
-| Dark Mode                                                               | Light Mode                                                                |
-| ----------------------------------------------------------------------- | ------------------------------------------------------------------------- |
-| ![Dark Mode](https://placehold.co/600x400/0f0f1a/f0f0f5?text=Dark+Mode) | ![Light Mode](https://placehold.co/600x400/f2f2f8/1a1a2e?text=Light+Mode) |
-
-> _Replace the placeholder images above with actual screenshots of your app._
+| Dark Mode                               | Light Mode                                |
+| --------------------------------------- | ----------------------------------------- |
+| ![Dark Mode](screenshots/dark_mode.png) | ![Light Mode](screenshots/light_mode.png) |
 
 ---
 

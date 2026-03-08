@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Smart To-Do List & Task Manager — add, edit, delete, prioritize, and reorder your tasks with a beautiful modern UI."
+    />
+    <title>Smart To-Do List | Task Manager</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- ======== App Container ======== -->
+    <div class="app">
+      <!-- ---- Header ---- -->
+      <header class="header">
+        <div class="header__left">
+          <h1 class="header__title">
+            <span class="header__icon">✅</span> Smart To-Do
+          </h1>
+          <p class="header__subtitle">Organize your day, one task at a time.</p>
+        </div>
+        <button
+          id="themeToggle"
+          class="btn-icon"
+          aria-label="Toggle dark/light mode"
+          title="Toggle theme"
+        >
+          <!-- Sun icon (shown in dark mode) -->
+          <svg
+            class="icon icon--sun"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <circle cx="12" cy="12" r="5" />
+            <line x1="12" y1="1" x2="12" y2="3" />
+            <line x1="12" y1="21" x2="12" y2="23" />
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64" />
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78" />
+            <line x1="1" y1="12" x2="3" y2="12" />
+            <line x1="21" y1="12" x2="23" y2="12" />
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36" />
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" />
+          </svg>
+          <!-- Moon icon (shown in light mode) -->
+          <svg
+            class="icon icon--moon"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
+          </svg>
+        </button>
+      </header>
+
+      <!-- ---- Stats Bar ---- -->
+      <div class="stats">
+        <div class="stats__item">
+          <span class="stats__number" id="totalCount">0</span>
+          <span class="stats__label">Total</span>
+        </div>
+        <div class="stats__item stats__item--completed">
+          <span class="stats__number" id="completedCount">0</span>
+          <span class="stats__label">Completed</span>
+        </div>
+        <div class="stats__item stats__item--pending">
+          <span class="stats__number" id="pendingCount">0</span>
+          <span class="stats__label">Pending</span>
+        </div>
+      </div>
+
+      <!-- ---- Add Task Form ---- -->
+      <form id="taskForm" class="task-form" autocomplete="off">
+        <div class="task-form__row">
+          <input
+            type="text"
+            id="taskInput"
+            class="task-form__input"
+            placeholder="What needs to be done?"
+            maxlength="120"
+            aria-label="Task description"
+          />
+          <select
+            id="prioritySelect"
+            class="task-form__select"
+            aria-label="Task priority"
+          >
+            <option value="low">🟢 Low</option>
+            <option value="medium" selected>🟡 Medium</option>
+            <option value="high">🔴 High</option>
+          </select>
+          <button type="submit" class="btn btn--primary" id="addBtn">
+            <span>+ Add</span>
+          </button>
+        </div>
+        <p id="validationMsg" class="task-form__error" aria-live="polite"></p>
+      </form>
+
+      <!-- ---- Search + Filters ---- -->
+      <div class="toolbar">
+        <div class="search-wrapper">
+          <svg
+            class="search-wrapper__icon"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <circle cx="11" cy="11" r="8" />
+            <line x1="21" y1="21" x2="16.65" y2="16.65" />
+          </svg>
+          <input
+            type="text"
+            id="searchInput"
+            class="search-wrapper__input"
+            placeholder="Search tasks…"
+            aria-label="Search tasks"
+          />
+        </div>
+        <div class="filters" role="group" aria-label="Filter tasks">
+          <button class="btn btn--filter active" data-filter="all">All</button>
+          <button class="btn btn--filter" data-filter="completed">
+            Completed
+          </button>
+          <button class="btn btn--filter" data-filter="pending">Pending</button>
+        </div>
+      </div>
+
+      <!-- ---- Task List ---- -->
+      <ul id="taskList" class="task-list" aria-label="Tasks"></ul>
+
+      <!-- ---- Empty State ---- -->
+      <div id="emptyState" class="empty-state">
+        <span class="empty-state__icon">📋</span>
+        <p>No tasks yet — add one above!</p>
+      </div>
+    </div>
+    <!-- /.app -->
+
+    <script src="script.js"></script>
+  </body>
+</html>
